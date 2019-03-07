@@ -20,9 +20,21 @@ public class Day {
         return dayNumber;
     }
 
-    public Day(int year, int dayNumber) {
-        this.year = year;
-        this.dayNumber = dayNumber;
+    /**
+     * Build an object of class Day with a year and a day number.
+     *
+     * @param aYear must be strictly positive
+     * @param aDayNumber must be strictly positive
+     */
+    public Day(final int aYear, final int aDayNumber) {
+        if (aYear <= 0) {
+            throw new IllegalArgumentException("Year must be strictly positive.");
+        }
+        if (aDayNumber <= 0) {
+            throw new IllegalArgumentException("Day number must be strictly positive.");
+        }
+        this.year = aYear;
+        this.dayNumber = aDayNumber;
     }
 
     @Override

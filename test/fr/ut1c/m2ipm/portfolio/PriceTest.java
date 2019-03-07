@@ -28,6 +28,6 @@ public class PriceTest {
 
     @Test
     public void testConstructor() {
-        Price price = new Price(new Day(0, 0), 0);
+        Price price = new Price(new Day(1, 1), 0);
     }
 }
