@@ -26,16 +26,6 @@ public class DayTest {
     public void tearDown() {
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testConstructorWithIncorrectYear() {
-        Day day = new Day(0, 1);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testConstructorWithIncorrectDay() {
-        Day day = new Day(1, 0);
-    }
-
     @Test
     public void testConstructorWithCorrectParameters() {
         Day day = new Day(1, 1);
