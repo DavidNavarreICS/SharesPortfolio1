@@ -28,6 +28,6 @@ public class DayTest {
 
     @Test
     public void testConstructorWithCorrectParameters() {
-        Day day = new Day(1, 1);
+        Day day = new Day(0, 0);
     }
 }
