@@ -20,9 +20,9 @@ public class Day {
         return dayNumber;
     }
 
-    public Day(final int aYear, final int aDayNumber) {
-        this.year = aYear;
-        this.dayNumber = aDayNumber;
+    public Day(int year, int dayNumber) {
+        this.year = year;
+        this.dayNumber = dayNumber;
     }
 
     @Override
