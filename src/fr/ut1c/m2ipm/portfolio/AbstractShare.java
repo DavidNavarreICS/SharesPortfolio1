@@ -80,7 +80,7 @@ public abstract class AbstractShare {
      * the same.<br>This method thus cannot be overriden. *
      */
     @Override
-    public final boolean equals(final Object obj) {
+    public boolean equals(final Object obj) {
         if (obj == null) {
             return false;
         }
