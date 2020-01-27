@@ -64,4 +64,10 @@ public class SimpleShare extends AbstractShare {
             return 0.0F;
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
 }

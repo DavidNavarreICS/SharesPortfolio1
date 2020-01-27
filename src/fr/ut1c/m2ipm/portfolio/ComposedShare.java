@@ -67,4 +67,9 @@ public class ComposedShare extends AbstractShare {
         return (float) value;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
 }
