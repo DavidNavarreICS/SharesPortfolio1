@@ -84,7 +84,7 @@ public abstract class AbstractShare {
         if (obj == null) {
             return false;
         }
-        if (!(obj.getClass().isInstance(AbstractShare.class))) {
+        if ((this.getClass() != obj.getClass())) {
             return false;
         }
         final AbstractShare other = (AbstractShare) obj;
