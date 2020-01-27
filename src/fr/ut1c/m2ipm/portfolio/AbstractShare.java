@@ -70,7 +70,7 @@ public abstract class AbstractShare {
      * the hashcode of any objects of this class is the one of its name.
      */
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         return Objects.hashCode(this.name);
     }
 
