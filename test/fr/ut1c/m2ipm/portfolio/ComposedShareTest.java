@@ -25,8 +25,10 @@ public class ComposedShareTest {
     private static final float DEFAULT_VALUE1 = 0.3F;
     private static final float DEFAULT_VALUE2 = 0.7F;
     private static final float DEFAULT_PRICE1 = 10.0F;
-    private static final SimpleShare SIMPLESHARE1 = new SimpleShare(WELL_FORMED_NAME2);
-    private static final SimpleShare SIMPLESHARE2 = new SimpleShare(WELL_FORMED_NAME3);
+    private static final SimpleShare SIMPLESHARE1 = new SimpleShare(
+            WELL_FORMED_NAME2);
+    private static final SimpleShare SIMPLESHARE2 = new SimpleShare(
+            WELL_FORMED_NAME3);
 
     static {
         SIMPLESHARE1.setPrice(DEFAULT_DAY, DEFAULT_PRICE1);
@@ -65,5 +67,12 @@ public class ComposedShareTest {
         float value = share.getPrice(DEFAULT_DAY);
         float expectedPrice = DEFAULT_VALUE1 * DEFAULT_PRICE1;
         Assert.assertEquals(expectedPrice, value, 0.0F);
+    }
+
+    @Test
+    public void testEqualsSame() {
+        Boolean answer = WELL_FORMED_NAME1.equals(WELL_FORMED_NAME1);
+        Boolean expected = true;
+        Assert.assertEquals(expected, answer);
     }
 }

@@ -66,12 +66,12 @@ public class SimpleShare extends AbstractShare {
     }
 
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
         return super.equals(obj);
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return super.hashCode();
     }
 

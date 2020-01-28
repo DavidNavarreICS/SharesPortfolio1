@@ -67,13 +67,19 @@ public class ComposedShare extends AbstractShare {
         return (float) value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
         return super.equals(obj);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return super.hashCode();
     }
 
