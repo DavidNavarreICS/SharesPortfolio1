@@ -71,16 +71,38 @@ public class ComposedShareTest {
 
     @Test
     public void testEqualsSame() {
-        SimpleShare share1 = new SimpleShare(WELL_FORMED_NAME1);
-        SimpleShare share2 = new SimpleShare(WELL_FORMED_NAME1);
+        ComposedShare share1 = new ComposedShare(WELL_FORMED_NAME1);
+        ComposedShare share2 = new ComposedShare(WELL_FORMED_NAME1);
         Boolean answer = share1.equals(share2);
         Assert.assertTrue(answer);
     }
 
     @Test
+    public void testEqualsSameWithSameComposition() {
+        ComposedShare share1 = new ComposedShare(WELL_FORMED_NAME1);
+        ComposedShare share2 = new ComposedShare(WELL_FORMED_NAME1);
+        SimpleShare share3 = new SimpleShare(WELL_FORMED_NAME3);
+        share1.registerComposition(share3, 1.0F);
+        share2.registerComposition(share3, 1.0F);
+        Boolean answer = share1.equals(share2);
+        Assert.assertTrue(answer);
+    }
+
+    @Test
+    public void testEqualsSameWithDifferentComposition() {
+        ComposedShare share1 = new ComposedShare(WELL_FORMED_NAME1);
+        ComposedShare share2 = new ComposedShare(WELL_FORMED_NAME1);
+        SimpleShare share3 = new SimpleShare(WELL_FORMED_NAME3);
+        share1.registerComposition(share3, 1.0F);
+        share2.registerComposition(share3, 0.5F);
+        Boolean answer = share1.equals(share2);
+        Assert.assertFalse(answer);
+    }
+
+    @Test
     public void testEqualsDifferent() {
-        SimpleShare share1 = new SimpleShare(WELL_FORMED_NAME1);
-        SimpleShare share2 = new SimpleShare(WELL_FORMED_NAME2);
+        ComposedShare share1 = new ComposedShare(WELL_FORMED_NAME1);
+        ComposedShare share2 = new ComposedShare(WELL_FORMED_NAME2);
         Assert.assertFalse(WELL_FORMED_NAME1.equals(WELL_FORMED_NAME2));
         Boolean answer = share1.equals(share2);
         Assert.assertFalse(answer);
