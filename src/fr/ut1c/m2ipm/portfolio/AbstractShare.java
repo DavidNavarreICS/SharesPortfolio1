@@ -75,9 +75,7 @@ public abstract class AbstractShare {
     }
 
     /**
-     * {@inheritDoc}<br>
-     * To encourage unicity of the name, two shares are equals is their name is
-     * the same.<br>This method thus cannot be overriden. *
+     * {@inheritDoc}
      */
     @Override
     public boolean equals(final Object obj) {
