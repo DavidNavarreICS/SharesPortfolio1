@@ -83,11 +83,11 @@ public class ShareTest {
     }
 
     @Test
-    public void testEqualsWithSameNameWithDifferentClass() {
+    public void testNotEqualsWithSameNameWithDifferentClass() {
         AbstractShare share1 = new SharePrototype(WELL_FORMED_NAME1);
         AbstractShare share2 = new SharePrototype2(WELL_FORMED_NAME1);
-        Assert.assertTrue(share1.equals(share2));
-        Assert.assertTrue(share2.equals(share1));
+        Assert.assertFalse(share1.equals(share2));
+        Assert.assertFalse(share2.equals(share1));
     }
 
     @Test

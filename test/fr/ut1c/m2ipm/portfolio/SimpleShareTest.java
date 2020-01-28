@@ -16,7 +16,8 @@ import org.junit.Test;
  */
 public class SimpleShareTest {
 
-    private static final String WELL_FORMED_NAME = "name1";
+    private static final String WELL_FORMED_NAME1 = "name1";
+    private static final String WELL_FORMED_NAME2 = "name2";
     private static final String MALFORMED_NAME = "";
     private static final String NULL_NAME = null;
     private static final Day DEFAULT_DAY = new Day(1, 1);
@@ -36,7 +37,7 @@ public class SimpleShareTest {
 
     @Test
     public void testConstructorWithCorrectParameter() {
-        new SimpleShare(WELL_FORMED_NAME);
+        new SimpleShare(WELL_FORMED_NAME1);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -51,7 +52,7 @@ public class SimpleShareTest {
 
     @Test
     public void testSetGetPriceWithCorrectValues() {
-        SimpleShare share = new SimpleShare(WELL_FORMED_NAME);
+        SimpleShare share = new SimpleShare(WELL_FORMED_NAME1);
         share.setPrice(DEFAULT_DAY, DEFAULT_VALUE1);
         float value = share.getPrice(DEFAULT_DAY);
         Assert.assertEquals(DEFAULT_VALUE1, value, 0.0F);
@@ -59,7 +60,7 @@ public class SimpleShareTest {
 
     @Test
     public void testSetGetPriceTwiceWithCorrectValues() {
-        SimpleShare share = new SimpleShare(WELL_FORMED_NAME);
+        SimpleShare share = new SimpleShare(WELL_FORMED_NAME1);
         share.setPrice(DEFAULT_DAY, DEFAULT_VALUE1);
         share.setPrice(DEFAULT_DAY, DEFAULT_VALUE2);
         float value = share.getPrice(DEFAULT_DAY);
@@ -68,8 +69,21 @@ public class SimpleShareTest {
 
     @Test
     public void testGetPriceWhenNotDefined() {
-        SimpleShare share = new SimpleShare(WELL_FORMED_NAME);
+        SimpleShare share = new SimpleShare(WELL_FORMED_NAME1);
         float value = share.getPrice(DEFAULT_DAY);
         Assert.assertEquals(0.0F, value, 0.0F);
     }
+
+    @Test
+    public void testEqualsSame() {
+        Boolean answer = WELL_FORMED_NAME1.equals(WELL_FORMED_NAME1);
+        Assert.assertTrue(answer);
+    }
+
+    @Test
+    public void testEqualsDifferent() {
+        Boolean answer = WELL_FORMED_NAME1.equals(WELL_FORMED_NAME2);
+        Assert.assertFalse(answer);
+    }
+
 }

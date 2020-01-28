@@ -72,7 +72,12 @@ public class ComposedShareTest {
     @Test
     public void testEqualsSame() {
         Boolean answer = WELL_FORMED_NAME1.equals(WELL_FORMED_NAME1);
-        Boolean expected = true;
-        Assert.assertEquals(expected, answer);
+        Assert.assertTrue(answer);
+    }
+
+    @Test
+    public void testEqualsDifferent() {
+        Boolean answer = WELL_FORMED_NAME1.equals(WELL_FORMED_NAME2);
+        Assert.assertFalse(answer);
     }
 }
