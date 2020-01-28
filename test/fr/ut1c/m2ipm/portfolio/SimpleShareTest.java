@@ -76,13 +76,18 @@ public class SimpleShareTest {
 
     @Test
     public void testEqualsSame() {
-        Boolean answer = WELL_FORMED_NAME1.equals(WELL_FORMED_NAME1);
+        SimpleShare share1 = new SimpleShare(WELL_FORMED_NAME1);
+        SimpleShare share2 = new SimpleShare(WELL_FORMED_NAME1);
+        Boolean answer = share1.equals(share2);
         Assert.assertTrue(answer);
     }
 
     @Test
     public void testEqualsDifferent() {
-        Boolean answer = WELL_FORMED_NAME1.equals(WELL_FORMED_NAME2);
+        SimpleShare share1 = new SimpleShare(WELL_FORMED_NAME1);
+        SimpleShare share2 = new SimpleShare(WELL_FORMED_NAME2);
+        Assert.assertFalse(WELL_FORMED_NAME1.equals(WELL_FORMED_NAME2));
+        Boolean answer = share1.equals(share2);
         Assert.assertFalse(answer);
     }
 
