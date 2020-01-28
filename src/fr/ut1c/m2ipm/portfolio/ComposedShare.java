@@ -69,7 +69,7 @@ public class ComposedShare extends AbstractShare {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(final Object obj) {
         if (!super.equals(obj)) {
             return false;
         }
