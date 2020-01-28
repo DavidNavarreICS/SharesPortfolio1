@@ -107,4 +107,11 @@ public class ComposedShareTest {
         Boolean answer = share1.equals(share2);
         Assert.assertFalse(answer);
     }
+
+    @Test
+    public void testHashcode() {
+        ComposedShare share = new ComposedShare(WELL_FORMED_NAME1);
+        int hash = share.hashCode();
+        Assert.assertTrue(hash != 0);
+    }
 }
