@@ -13,7 +13,6 @@ package fr.ut1c.m2ipm.portfolio;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Composed share represent a set of Shares.
@@ -76,11 +75,8 @@ public class ComposedShare extends AbstractShare {
         if (!super.equals(obj)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
         final ComposedShare other = (ComposedShare) obj;
-        return Objects.equals(this.sharesBasket, other.sharesBasket);
+        return this.sharesBasket.equals(other.sharesBasket);
     }
 
     /**
