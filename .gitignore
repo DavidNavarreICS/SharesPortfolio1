@@ -1,4 +1,5 @@
 /.jacocoverage/
+/.scannerwork/
 /nbproject/private/
 /build/
 /dist/
