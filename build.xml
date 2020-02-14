@@ -13,7 +13,7 @@
     <property name="sonar.java.binaries" value="build/classes" />
     <property name="sonar.java.libraries" value="lib/*.jar" />
     <property name="sonar.core.codeCoveragePlugin" value="jacoco" />
-    <property name="sonar.jacoco.reportPaths" value="${basedir}/build/jacoco.exec" />
+    <property name="sonar.coverage.jacoco.xmlReportPaths" value="${basedir}/build/jacoco.exec" />
 
     <target name="sonar"  depends="jacoco">
         <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
