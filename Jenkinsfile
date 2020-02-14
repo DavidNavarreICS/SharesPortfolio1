@@ -5,7 +5,7 @@ timestamps {
 node () {
 
         stage ('Checkout') {
-            checkout([$class: 'GitSCM', branches: [[name: '*/gp4']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '88f4da1f-91a4-41fc-b1d8-8bd1e8b6bd26', url: 'https://github.com/DavidNavarreICS/SharesPortfolio1.git']]])
+            checkout([$class: 'GitSCM', branches: [[name: '*/prof1']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '88f4da1f-91a4-41fc-b1d8-8bd1e8b6bd26', url: 'https://github.com/DavidNavarreICS/SharesPortfolio1.git']]])
         }
         stage ('Build') {
             // Ant build step
