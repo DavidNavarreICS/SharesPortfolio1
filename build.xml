@@ -5,7 +5,7 @@
 
     <property name="sonar.host.url" value="http://localhost:9000" />
 
-    <property name="sonar.projectKey" value="gp4" />
+    <property name="sonar.projectKey" value="prof1" />
     <property name="sonar.projectName" value="Shares Portfolio Prof 1" />
     <property name="sonar.projectVersion" value="1.0" />
     <property name="sonar.sources" value="src" />
