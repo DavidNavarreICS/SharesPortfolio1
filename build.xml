@@ -3,10 +3,14 @@
     <description>Builds, tests, and runs the project SharesPortfolio.</description>
     <import file="nbproject/build-impl.xml"/>
 
+    <exec executable="git" outputproperty="git.branch"
+          failifexecutionfails="false">
+        <arg line="rev-parse --abbrev-ref HEAD"/>
+    </exec>
     <property name="sonar.host.url" value="http://localhost:9000" />
-    <property name="project.branch.name" value="${env.BRANCH_NAME}"/>
+    <property name="project.branch.name" value="${git.branch}"/>
     <property name="sonar.projectKey" value="${project.branch.name}" />
-    <property name="sonar.projectName" value="Shares Portfolio ${project.branch.name}" />
+    <property name="sonar.projectName" value="Shares Portfolio [${project.branch.name}]" />
     <property name="sonar.projectVersion" value="1.0" />
     <property name="sonar.sources" value="src" />
     <property name="sonar.tests" value="test" />
