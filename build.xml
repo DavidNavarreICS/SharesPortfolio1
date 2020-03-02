@@ -7,6 +7,7 @@
           failifexecutionfails="false">
         <arg line="rev-parse --abbrev-ref HEAD"/>
     </exec>
+    <echo message="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  Current branch: ${git.branch}"/>
     <property name="sonar.host.url" value="http://localhost:9000" />
     <property name="project.branch.name" value="${git.branch}"/>
     <property name="sonar.projectKey" value="${project.branch.name}" />
