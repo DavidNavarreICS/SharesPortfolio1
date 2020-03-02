@@ -12,10 +12,12 @@
     <property name="sonar.tests" value="test" />
     <property name="sonar.java.binaries" value="build/classes" />
     <property name="sonar.java.libraries" value="lib/*.jar" />
+    <property name="sonar.java.test.binaries" value="build/test/classes" />
+    <property name="sonar.java.test.libraries" value="lib/*.jar" />
     <property name="sonar.core.codeCoveragePlugin" value="jacoco" />
-    <property name="sonar.coverage.jacoco.xmlReportPaths" value="${basedir}/build/report/" />
+    <property name="sonar.coverage.jacoco.xmlReportPaths" value="${basedir}/build/report/report.xml" />
 
-    <target name="sonar"  depends="jacoco">
+    <target name="sonar"  depends="report">
         <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
             <classpath path="${basedir}/lib/sonarqube-ant-task-2.7.0.1612.jar" />
         </taskdef>
@@ -26,12 +28,11 @@
         <classpath path="${basedir}/lib/jacocoant.jar"/>
     </taskdef>
 
-
     <target name="jacoco" depends="compile-test">
         <delete dir="${basedir}/build/report" />
         <mkdir dir="${basedir}/build/report" />
 
-        <jacoco:coverage destfile="${basedir}/build/jacoco.exec">
+        <jacoco:coverage destfile="${basedir}/build/report/jacoco.exec">
             <junit fork="yes" dir="${basedir}" failureProperty="test.failed">
                 <classpath location="${build.classes.dir}" />
                 <classpath location="${build.test.classes.dir}" />
@@ -46,6 +47,28 @@
         </jacoco:coverage>
     </target>
 
+    <target name="report" depends="jacoco">
+        <!--  Step 3: Create coverage report  -->
+        <jacoco:report>
+            <!--
+             This task needs the collected execution data and ...
+            -->
+            <executiondata>
+                <file file="${basedir}/build/report/jacoco.exec"/>
+            </executiondata>
+            <structure name="${sonar.projectName}">
+                <classfiles>
+                    <fileset dir="${build.classes.dir}"/>
+                </classfiles>
+                <sourcefiles encoding="UTF-8">
+                    <fileset dir="${src.dir}"/>
+                </sourcefiles>
+            </structure>
+            <!--  to produce reports in different formats.  -->
+            <html destdir="${basedir}/build/report/html/"/>
+            <xml destfile="${basedir}/build/report/report.xml"/>
+        </jacoco:report>
+    </target>
     <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"
              classpath="lib/checkstyle-8.17-all.jar"/>
 
