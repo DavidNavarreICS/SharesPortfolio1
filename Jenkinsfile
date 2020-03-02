@@ -9,7 +9,7 @@ node () {
         }
         stage ('Build') {
             // Ant build step
-            withAnt(installation: 'Ant10.5', jdk: 'jdk8') {
+            withAnt(installation: 'Ant10.5') {
                 if(isUnix()) {
                     sh "ant clean jar checkstyle findbugs sonar "
                 } else {
