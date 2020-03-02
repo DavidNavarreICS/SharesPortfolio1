@@ -5,8 +5,9 @@
 
     <property name="sonar.host.url" value="http://localhost:9000" />
 
-    <property name="sonar.projectKey" value="prof1" />
-    <property name="sonar.projectName" value="Shares Portfolio Prof 1" />
+    <property name="project.branch.name" value="prof1"/>
+    <property name="sonar.projectKey" value="${project.branch.name}" />
+    <property name="sonar.projectName" value="Shares Portfolio [${project.branch.name}]" />
     <property name="sonar.projectVersion" value="1.0" />
     <property name="sonar.sources" value="src" />
     <property name="sonar.tests" value="test" />
