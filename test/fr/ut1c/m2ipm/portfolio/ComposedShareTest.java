@@ -8,7 +8,6 @@ package fr.ut1c.m2ipm.portfolio;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -77,17 +76,6 @@ public class ComposedShareTest {
                 expectedPrice, value, 0.0F);
     }
 
-    @Ignore
-    @Test
-    public void testEqualsSame() {
-        ComposedShare share1 = new ComposedShare(WELL_FORMED_NAME1);
-        ComposedShare share2 = new ComposedShare(WELL_FORMED_NAME1);
-        Boolean answer = share1.equals(share2);
-        Assert.assertTrue(
-                "Two composed shares with the same name should be considered as equals",
-                answer);
-    }
-
     @Test
     public void testEqualsSameWithSameComposition() {
         ComposedShare share1 = new ComposedShare(WELL_FORMED_NAME1);
@@ -118,7 +106,9 @@ public class ComposedShareTest {
     public void testEqualsDifferent() {
         ComposedShare share1 = new ComposedShare(WELL_FORMED_NAME1);
         ComposedShare share2 = new ComposedShare(WELL_FORMED_NAME2);
-        Assert.assertFalse(WELL_FORMED_NAME1.equals(WELL_FORMED_NAME2));
+        Assert.assertFalse(
+                "For the correctness of the test, the two used string should be differents",
+                WELL_FORMED_NAME1.equals(WELL_FORMED_NAME2));
         Boolean answer = share1.equals(share2);
         Assert.assertFalse(
                 "Two composed shares with different name should not be considered as equals",

@@ -34,7 +34,8 @@ public class ShareTest {
 
     @Test
     public void testConstructorWithCorrectParameter() {
-        getNewShare(WELL_FORMED_NAME1);
+        AbstractShare share = getNewShare(WELL_FORMED_NAME1);
+        Assert.assertNotNull("Dummy test", share);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -51,66 +52,64 @@ public class ShareTest {
     public void testGetNameReturnsSame() {
         AbstractShare share = getNewShare(WELL_FORMED_NAME1);
         String name = share.getName();
-        Assert.assertSame(name, WELL_FORMED_NAME1);
+        Assert.assertSame(
+                "The name of the share should be the one used to create it",
+                name, WELL_FORMED_NAME1);
     }
 
     @Test
     public void testToStringReturnsNotNull() {
         AbstractShare share = getNewShare(WELL_FORMED_NAME1);
         String toString = share.toString();
-        Assert.assertNotNull(toString);
+        Assert.assertNotNull("To string cannot be null", toString);
+        Assert.assertFalse("To string cannot be empty", toString.isEmpty());
     }
 
     @Test
     public void testHashcodeIsDefined() {
         AbstractShare share = getNewShare(WELL_FORMED_NAME1);
         int code = share.hashCode();
-        Assert.assertTrue(code != 0);
-    }
-
-    @Test
-    public void testEqualsWithSameObject() {
-        AbstractShare share = getNewShare(WELL_FORMED_NAME1);
-        Assert.assertTrue(share.equals(share));
+        Assert.assertTrue("Hashcode should not be equal to 0", code != 0);
     }
 
     @Test
     public void testEqualsWithSameName() {
         AbstractShare share1 = getNewShare(WELL_FORMED_NAME1);
         AbstractShare share2 = getNewShare(WELL_FORMED_NAME1);
-        Assert.assertTrue(share1.equals(share2));
-        Assert.assertTrue(share2.equals(share1));
-    }
-
-    @Test
-    public void testNotEqualsWithSameNameWithDifferentClass() {
-        AbstractShare share1 = new SharePrototype(WELL_FORMED_NAME1);
-        AbstractShare share2 = new SharePrototype2(WELL_FORMED_NAME1);
-        Assert.assertFalse(share1.equals(share2));
-        Assert.assertFalse(share2.equals(share1));
+        Assert.assertTrue("Two shares with the same name should be equals",
+                share1.equals(share2));
+        Assert.assertTrue("Two shares with the same name should be equals",
+                share2.equals(share1));
     }
 
     @Test
     public void testNotEqualsWithDifferentName() {
         AbstractShare share1 = getNewShare(WELL_FORMED_NAME1);
         AbstractShare share2 = getNewShare(WELL_FORMED_NAME2);
-        Assert.assertFalse(share1.equals(share2));
-        Assert.assertFalse(share2.equals(share1));
+        Assert.assertFalse(
+                "Two shares with different names should not be equals", share1.
+                        equals(share2));
+        Assert.assertFalse(
+                "Two shares with different names should not be equals", share2.
+                        equals(share1));
     }
 
     @Test
     public void testNotEqualsWithDifferentClass() {
         AbstractShare share1 = getNewShare(WELL_FORMED_NAME1);
         Object share2 = new Object();
-        Assert.assertFalse(share1.equals(share2));
-        Assert.assertFalse(share2.equals(share1));
+        Assert.assertFalse("Shares are only equals to shares", share1.equals(
+                share2));
+        Assert.assertFalse("Shares are only equals to shares", share2.equals(
+                share1));
     }
 
     @Test
     public void testNotEqualsWithNullObject() {
         AbstractShare share1 = getNewShare(WELL_FORMED_NAME1);
         Object share2 = null;
-        Assert.assertFalse(share1.equals(share2));
+        Assert.assertFalse("Shares are only equals to shares", share1.equals(
+                share2));
     }
 
     private AbstractShare getNewShare(String name) {
@@ -120,18 +119,6 @@ public class ShareTest {
     private static class SharePrototype extends AbstractShare {
 
         public SharePrototype(String aName) {
-            super(aName);
-        }
-
-        @Override
-        public float getPrice(Day day) {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
-    }
-
-    private static class SharePrototype2 extends AbstractShare {
-
-        public SharePrototype2(String aName) {
             super(aName);
         }
 

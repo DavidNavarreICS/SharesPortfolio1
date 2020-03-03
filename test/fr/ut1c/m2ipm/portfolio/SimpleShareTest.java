@@ -37,7 +37,8 @@ public class SimpleShareTest {
 
     @Test
     public void testConstructorWithCorrectParameter() {
-        new SimpleShare(WELL_FORMED_NAME1);
+        SimpleShare share = new SimpleShare(WELL_FORMED_NAME1);
+        Assert.assertNotNull("Dummy test", share);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -64,14 +65,16 @@ public class SimpleShareTest {
         share.setPrice(DEFAULT_DAY, DEFAULT_VALUE1);
         share.setPrice(DEFAULT_DAY, DEFAULT_VALUE2);
         float value = share.getPrice(DEFAULT_DAY);
-        Assert.assertEquals(DEFAULT_VALUE1, value, 0.0F);
+        Assert.assertEquals("The price can only be set once", DEFAULT_VALUE1,
+                value, 0.0F);
     }
 
     @Test
     public void testGetPriceWhenNotDefined() {
         SimpleShare share = new SimpleShare(WELL_FORMED_NAME1);
         float value = share.getPrice(DEFAULT_DAY);
-        Assert.assertEquals(0.0F, value, 0.0F);
+        Assert.assertEquals("The default price should be 0.0F", 0.0F, value,
+                0.0F);
     }
 
     @Test
@@ -79,16 +82,22 @@ public class SimpleShareTest {
         SimpleShare share1 = new SimpleShare(WELL_FORMED_NAME1);
         SimpleShare share2 = new SimpleShare(WELL_FORMED_NAME1);
         Boolean answer = share1.equals(share2);
-        Assert.assertTrue(answer);
+        Assert.assertTrue(
+                "Twe simpleshares with the same name should be considered as equals",
+                answer);
     }
 
     @Test
     public void testEqualsDifferent() {
         SimpleShare share1 = new SimpleShare(WELL_FORMED_NAME1);
         SimpleShare share2 = new SimpleShare(WELL_FORMED_NAME2);
-        Assert.assertFalse(WELL_FORMED_NAME1.equals(WELL_FORMED_NAME2));
+        Assert.assertFalse(
+                "The two strings must be differents for the correctness of the test",
+                WELL_FORMED_NAME1.equals(WELL_FORMED_NAME2));
         Boolean answer = share1.equals(share2);
-        Assert.assertFalse(answer);
+        Assert.assertFalse(
+                "Two simpleshares with different names should be considered as different",
+                answer);
     }
 
 }

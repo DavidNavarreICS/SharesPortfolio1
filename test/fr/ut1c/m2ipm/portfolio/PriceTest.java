@@ -33,6 +33,7 @@ public class PriceTest {
     @Test
     public void testConstructor() {
         Price price = new Price(DEFAULT_DAY, DEFAULT_VALUE);
+        Assert.assertNotNull("Dummy test", price);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -54,13 +55,17 @@ public class PriceTest {
     public void testGetValueIsSame() {
         Price price = new Price(DEFAULT_DAY, DEFAULT_VALUE);
         float value = price.getValue();
-        Assert.assertEquals(DEFAULT_VALUE, value, 0.0F);
+        Assert.assertEquals(
+                "The value of the price should be the one used for creting it",
+                DEFAULT_VALUE, value, 0.0F);
     }
 
     @Test
     public void testGetDayIsSame() {
         Price price = new Price(DEFAULT_DAY, DEFAULT_VALUE);
         Day day = price.getDay();
-        Assert.assertSame(DEFAULT_DAY, day);
+        Assert.assertSame(
+                "The value of the day should be the one used for creting it",
+                DEFAULT_DAY, day);
     }
 }
