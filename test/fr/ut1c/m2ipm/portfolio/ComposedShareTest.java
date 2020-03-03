@@ -50,6 +50,10 @@ public class ComposedShareTest {
     public void testConstructorWithCorrectParameter() {
         final ComposedShare cs1 = new ComposedShare(WELL_FORMED_NAME1);
         Assert.assertNotNull("New created Object cannot be null", cs1);
+        final String answer = cs1.getName();
+        Assert.assertSame(
+                "The share name should be the one used for its creation",
+                WELL_FORMED_NAME1, answer);
     }
 
     @Test(expected = IllegalArgumentException.class)
