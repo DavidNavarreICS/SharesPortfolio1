@@ -80,66 +80,77 @@ public class DayTest {
     public void testEqualsWithSameValues() {
         Day day1 = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
         Day day2 = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
+        boolean answer1 = day1.equals(day2);
         Assert.assertTrue(
                 "Two Day objects built with the same values should be equals",
-                day1.equals(day2));
+                answer1);
+        boolean answer2 = day2.equals(day1);
         Assert.assertTrue(
                 "Two Day objects built with the same values should be equals",
-                day2.equals(day1));
+                answer2);
     }
 
     @Test
     public void testEqualsWithSameYearWithDifferentDay() {
         Day day1 = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
         Day day2 = new Day(NON_NULL_VALUE1, NON_NULL_VALUE2);
+        boolean answer1 = day1.equals(day2);
         Assert.assertFalse(
                 "Two Day objects built with different day value should not be equals",
-                day1.equals(day2));
+                answer1);
+        boolean answer2 = day2.equals(day1);
         Assert.assertFalse(
                 "Two Day objects built with different day value should not be equals",
-                day2.equals(day1));
+                answer2);
     }
 
     @Test
     public void testEqualsWithSameDayWithDifferentYear() {
         Day day1 = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
         Day day2 = new Day(NON_NULL_VALUE2, NON_NULL_VALUE1);
+        boolean answer1 = day1.equals(day2);
         Assert.assertFalse(
                 "Two Day objects built with different year value should not be equals",
-                day1.equals(day2));
+                answer1);
+        boolean answer2 = day2.equals(day1);
         Assert.assertFalse(
                 "Two Day objects built with different year value should not be equals",
-                day2.equals(day1));
+                answer2);
     }
 
     @Test
     public void testNotEqualsWithDifferentValues() {
         Day day1 = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
         Day day2 = new Day(NON_NULL_VALUE2, NON_NULL_VALUE2);
+        boolean answer1 = day1.equals(day2);
         Assert.assertFalse(
                 "Two Day objects built with different values should not be equals",
-                day1.equals(day2));
+                answer1);
+        boolean answer2 = day2.equals(day1);
         Assert.assertFalse(
                 "Two Day objects built with different values should not be equals",
-                day2.equals(day1));
+                answer2);
     }
 
     @Test
     public void testNotEqualsWithDifferentClass() {
         Day day1 = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
         Object day2 = new Object();
+        boolean answer1 = day1.equals(day2);
         Assert.assertFalse(
-                "Two objects of different classes should not be equals", day1.
-                        equals(day2));
-        Assert.assertFalse(day2.equals(day1));
+                "Two objects of different classes should not be equals", answer1);
+        boolean answer2 = day2.equals(day1);
+        Assert.assertFalse(
+                "Two objects of different classes should not be equals",
+                answer2);
     }
 
     @Test
     public void testNotEqualsWithNullObject() {
         Day day1 = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
         Object day2 = null;
-        Assert.assertFalse("A day object cannot be equals to null", day1.equals(
-                day2));
+        boolean answer1 = day1.equals(day2);
+        Assert.assertFalse("A day object cannot be equals to null", answer1);
     }
 
 }
