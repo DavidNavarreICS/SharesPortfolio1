@@ -58,6 +58,7 @@ public class PriceTest {
     public void testGetDayIsSame() {
         Price price = new Price(DEFAULT_DAY, DEFAULT_VALUE);
         Day day = price.getDay();
+        Assert.assertNotNull("Dummy test", day);
         Assert.assertSame(
                 "The value of the day should be the one used for creating it",
                 DEFAULT_DAY, day);
