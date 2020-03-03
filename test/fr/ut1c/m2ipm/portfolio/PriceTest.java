@@ -65,5 +65,9 @@ public class PriceTest {
         Assert.assertEquals(
                 "The value of the day should be the one used for creating it",
                 DEFAULT_DAY, day);
+        boolean answer = DEFAULT_DAY.equals(day);
+        Assert.assertTrue(
+                "The value of the day should be the one used for creating it",
+                answer);
     }
 }
