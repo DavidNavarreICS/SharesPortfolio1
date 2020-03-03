@@ -42,13 +42,16 @@ public class PortfolioTest {
     @Test
     public void testConstructor() {
         Portfolio portfolio = new Portfolio();
+        Assert.assertNotNull("Dummy test", portfolio);
     }
 
     @Test
     public void testGetValueWithEmptyPortfolio() {
         Portfolio portfolio = new Portfolio();
         float value = portfolio.getValue(DEFAULT_DAY);
-        Assert.assertEquals(0.0F, value, 0.0F);
+        Assert.assertEquals(
+                "The default value for any day should be initially 0.0F", 0.0F,
+                value, 0.0F);
     }
 
     @Test
@@ -57,7 +60,9 @@ public class PortfolioTest {
         portfolio.buy(SHARE1, DEFAULT_QUANTITY);
         float value = portfolio.getValue(DEFAULT_DAY);
         final float expectedResult = DEFAULT_VALUE * DEFAULT_QUANTITY;
-        Assert.assertEquals(expectedResult, value, 0.0F);
+        Assert.assertEquals(
+                "The value of the protfolio is the weighted sum of each value of each consituting shares.",
+                expectedResult, value, 0.0F);
     }
 
     @Test
@@ -67,7 +72,9 @@ public class PortfolioTest {
         portfolio.buy(SHARE1, DEFAULT_QUANTITY);
         float value = portfolio.getValue(DEFAULT_DAY);
         final float expectedResult = 2 * DEFAULT_VALUE * DEFAULT_QUANTITY;
-        Assert.assertEquals(expectedResult, value, 0.0F);
+        Assert.assertEquals(
+                "The value of the protfolio is the weighted sum of each value of each consituting shares.",
+                expectedResult, value, 0.0F);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -89,7 +96,9 @@ public class PortfolioTest {
         portfolio.sell(SHARE1, DEFAULT_QUANTITY);
         float value = portfolio.getValue(DEFAULT_DAY);
         final float expectedResult = DEFAULT_VALUE * DEFAULT_QUANTITY;
-        Assert.assertEquals(expectedResult, value, 0.0F);
+        Assert.assertEquals(
+                "The value of the protfolio is the weighted sum of each value of each consituting shares.",
+                expectedResult, value, 0.0F);
     }
 
     @Test
@@ -99,13 +108,16 @@ public class PortfolioTest {
         portfolio.sell(SHARE1, 2 * DEFAULT_QUANTITY);
         float value = portfolio.getValue(DEFAULT_DAY);
         final float expectedResult = 0.0F;
-        Assert.assertEquals(expectedResult, value, 0.0F);
+        Assert.assertEquals(
+                "The value of the protfolio is the weighted sum of each value of each consituting shares.",
+                expectedResult, value, 0.0F);
     }
 
     @Test
     public void testSellNotExistingShare() {
         Portfolio portfolio = new Portfolio();
         portfolio.sell(SHARE1, DEFAULT_QUANTITY);
+        Assert.assertNotNull("Dummy test", portfolio);
     }
 
     @Test
@@ -115,7 +127,9 @@ public class PortfolioTest {
         portfolio.sell(SHARE1, DEFAULT_QUANTITY);
         float value = portfolio.getValue(DEFAULT_DAY);
         final float expectedResult = 0.0F;
-        Assert.assertEquals(expectedResult, value, 0.0F);
+        Assert.assertEquals(
+                "The value of the protfolio is the weighted sum of each value of each consituting shares.",
+                expectedResult, value, 0.0F);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -138,7 +152,7 @@ public class PortfolioTest {
         Portfolio portfolio = new Portfolio();
         portfolio.buy(SHARE1, DEFAULT_QUANTITY);
         String toString = portfolio.toString();
-        Assert.assertNotNull(toString);
-        Assert.assertTrue(!toString().isEmpty());
+        Assert.assertNotNull("To string cannot be null", toString);
+        Assert.assertFalse("To string cannot be empty", toString().isEmpty());
     }
 }

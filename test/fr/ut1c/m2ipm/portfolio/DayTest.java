@@ -8,7 +8,6 @@ package fr.ut1c.m2ipm.portfolio;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -75,13 +74,6 @@ public class DayTest {
         Day day = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
         int code = day.hashCode();
         Assert.assertTrue("The hashcode cannot be equal to 0", code != 0);
-    }
-
-    @Ignore
-    @Test
-    public void testEqualsWithSameObject() {
-        Day day = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
-        Assert.assertTrue(day.equals(day));
     }
 
     @Test
