@@ -35,12 +35,6 @@ public class SimpleShareTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testConstructorWithCorrectParameter() {
-        SimpleShare share = new SimpleShare(WELL_FORMED_NAME1);
-        Assert.assertNotNull("Dummy test", share);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void testConstructorWithInorrectParameter() {
         new SimpleShare(MALFORMED_NAME);
@@ -56,7 +50,10 @@ public class SimpleShareTest {
         SimpleShare share = new SimpleShare(WELL_FORMED_NAME1);
         share.setPrice(DEFAULT_DAY, DEFAULT_VALUE1);
         float value = share.getPrice(DEFAULT_DAY);
-        Assert.assertEquals(DEFAULT_VALUE1, value, 0.0F);
+        Assert.
+                assertEquals(
+                        "The price should be the same as the one registered",
+                        DEFAULT_VALUE1, value, 0.0F);
     }
 
     @Test

@@ -30,12 +30,6 @@ public class PriceTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testConstructor() {
-        Price price = new Price(DEFAULT_DAY, DEFAULT_VALUE);
-        Assert.assertNotNull("Dummy test", price);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void testConstructorWithNullDay() {
         Price price = new Price(null, DEFAULT_VALUE);
@@ -65,7 +59,7 @@ public class PriceTest {
         Price price = new Price(DEFAULT_DAY, DEFAULT_VALUE);
         Day day = price.getDay();
         Assert.assertSame(
-                "The value of the day should be the one used for creting it",
+                "The value of the day should be the one used for creating it",
                 DEFAULT_DAY, day);
     }
 }

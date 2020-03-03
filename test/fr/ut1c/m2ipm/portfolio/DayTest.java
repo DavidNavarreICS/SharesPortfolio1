@@ -30,12 +30,6 @@ public class DayTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testConstructorWithCorrectParameters() {
-        Day day = new Day(NON_NULL_VALUE1, NON_NULL_VALUE1);
-        Assert.assertNotNull("A day should be built with non null values", day);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void testConstructorWithIncorrectYear() {
         Day day = new Day(0, NON_NULL_VALUE1);

@@ -32,12 +32,6 @@ public class ShareTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testConstructorWithCorrectParameter() {
-        AbstractShare share = getNewShare(WELL_FORMED_NAME1);
-        Assert.assertNotNull("Dummy test", share);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void testConstructorWithInorrectParameter() {
         getNewShare(MALFORMED_NAME);
@@ -76,40 +70,47 @@ public class ShareTest {
     public void testEqualsWithSameName() {
         AbstractShare share1 = getNewShare(WELL_FORMED_NAME1);
         AbstractShare share2 = getNewShare(WELL_FORMED_NAME1);
+        final boolean answer1 = share1.equals(share2);
         Assert.assertTrue("Two shares with the same name should be equals",
-                share1.equals(share2));
+                answer1);
+        final boolean answer2 = share2.equals(share1);
         Assert.assertTrue("Two shares with the same name should be equals",
-                share2.equals(share1));
+                answer2);
     }
 
     @Test
     public void testNotEqualsWithDifferentName() {
         AbstractShare share1 = getNewShare(WELL_FORMED_NAME1);
         AbstractShare share2 = getNewShare(WELL_FORMED_NAME2);
+        final boolean answer1 = share1.
+                equals(share2);
         Assert.assertFalse(
-                "Two shares with different names should not be equals", share1.
-                        equals(share2));
+                "Two shares with different names should not be equals", answer1);
+        final boolean answer2 = share2.
+                equals(share1);
         Assert.assertFalse(
-                "Two shares with different names should not be equals", share2.
-                        equals(share1));
+                "Two shares with different names should not be equals", answer2);
     }
 
     @Test
     public void testNotEqualsWithDifferentClass() {
         AbstractShare share1 = getNewShare(WELL_FORMED_NAME1);
         Object share2 = new Object();
-        Assert.assertFalse("Shares are only equals to shares", share1.equals(
-                share2));
-        Assert.assertFalse("Shares are only equals to shares", share2.equals(
-                share1));
+        final boolean answer1 = share1.equals(
+                share2);
+        Assert.assertFalse("Shares are only equals to shares", answer1);
+        final boolean answer2 = share2.equals(
+                share1);
+        Assert.assertFalse("Shares are only equals to shares", answer2);
     }
 
     @Test
     public void testNotEqualsWithNullObject() {
         AbstractShare share1 = getNewShare(WELL_FORMED_NAME1);
         Object share2 = null;
-        Assert.assertFalse("Shares are only equals to shares", share1.equals(
-                share2));
+        final boolean answer1 = share1.equals(
+                share2);
+        Assert.assertFalse("Shares are only equals to shares", answer1);
     }
 
     private AbstractShare getNewShare(String name) {

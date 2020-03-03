@@ -40,12 +40,6 @@ public class PortfolioTest {
     }
 
     @Test
-    public void testConstructor() {
-        Portfolio portfolio = new Portfolio();
-        Assert.assertNotNull("Dummy test", portfolio);
-    }
-
-    @Test
     public void testGetValueWithEmptyPortfolio() {
         Portfolio portfolio = new Portfolio();
         float value = portfolio.getValue(DEFAULT_DAY);
@@ -116,8 +110,10 @@ public class PortfolioTest {
     @Test
     public void testSellNotExistingShare() {
         Portfolio portfolio = new Portfolio();
+        float valueBefore = portfolio.getValue(DEFAULT_DAY);
         portfolio.sell(SHARE1, DEFAULT_QUANTITY);
-        Assert.assertNotNull("Dummy test", portfolio);
+        float valueAfter = portfolio.getValue(DEFAULT_DAY);
+        Assert.assertEquals("Dummy test", valueBefore, valueAfter, 0.0F);
     }
 
     @Test
@@ -136,9 +132,6 @@ public class PortfolioTest {
     public void testSellWithNullShare() {
         Portfolio portfolio = new Portfolio();
         portfolio.sell(null, DEFAULT_QUANTITY);
-        float value = portfolio.getValue(DEFAULT_DAY);
-        final float expectedResult = 0.0F;
-        Assert.assertEquals(expectedResult, value, 0.0F);
     }
 
     @Test(expected = IllegalArgumentException.class)
