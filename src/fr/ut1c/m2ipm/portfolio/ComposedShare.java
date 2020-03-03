@@ -75,9 +75,9 @@ public class ComposedShare extends AbstractShare {
         if (!super.equals(obj)) {
             return false;
         }
-        final ComposedShare other = (ComposedShare) obj;
-        boolean answer = this.sharesBasket.equals(other.sharesBasket);
-        return answer;
+        final Map<SimpleShare, Float> other
+                = ((ComposedShare) obj).sharesBasket;
+        return this.sharesBasket.equals(other);
     }
 
     /**
