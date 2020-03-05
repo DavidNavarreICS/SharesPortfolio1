@@ -66,7 +66,7 @@ public class SimpleShare extends AbstractShare {
     }
 
     @Override
-    public final boolean equals(final Object obj) {
+    public boolean equals(final Object obj) {
         if (!super.equals(obj)) {
             return false;
         }
