@@ -20,7 +20,7 @@ import java.util.Map;
  * @see AbstractShare
  * @author navarre
  */
-public class ComposedShare extends AbstractShare {
+public final class ComposedShare extends AbstractShare {
 
     /**
      * A map that stores simple shares and their rate within this composed
@@ -44,7 +44,7 @@ public class ComposedShare extends AbstractShare {
      * @param simpleShare the simple share to store
      * @param percentage the corresponding rate
      */
-    public final void registerComposition(
+    public void registerComposition(
             final SimpleShare simpleShare,
             final float percentage) {
         this.sharesBasket.put(simpleShare, percentage);
@@ -54,7 +54,7 @@ public class ComposedShare extends AbstractShare {
      * {@inheritDoc}
      */
     @Override
-    public final float getPrice(final Day day) {
+    public float getPrice(final Day day) {
         double value;
 
         value = 0;
@@ -71,7 +71,7 @@ public class ComposedShare extends AbstractShare {
      * {@inheritDoc}
      */
     @Override
-    public final boolean equals(final Object obj) {
+    public boolean equals(final Object obj) {
         if (!super.equals(obj)) {
             return false;
         }
@@ -84,7 +84,7 @@ public class ComposedShare extends AbstractShare {
      * {@inheritDoc}
      */
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         return super.hashCode();
     }
 
