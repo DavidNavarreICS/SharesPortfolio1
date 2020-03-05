@@ -67,7 +67,12 @@ public class SimpleShare extends AbstractShare {
 
     @Override
     public final boolean equals(final Object obj) {
-        return super.equals(obj);
+        if (!super.equals(obj)) {
+            return false;
+        }
+
+        SimpleShare other = (SimpleShare) obj;
+        return this.mapPrices.equals(other.mapPrices);
     }
 
     @Override
