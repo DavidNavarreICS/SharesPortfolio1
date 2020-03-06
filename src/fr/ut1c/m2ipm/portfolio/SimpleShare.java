@@ -23,7 +23,7 @@ import java.util.Map;
  * @see Price
  * @author David Navarre
  */
-public class SimpleShare extends AbstractShare {
+public final class SimpleShare extends AbstractShare {
 
     /**
      * A collection that maps a day into a price.
@@ -47,7 +47,7 @@ public class SimpleShare extends AbstractShare {
      * @param aDay a non null day
      * @param aValue a strictly positive value
      */
-    public final void setPrice(final Day aDay, final float aValue) {
+    public void setPrice(final Day aDay, final float aValue) {
         if (!this.mapPrices.containsKey(aDay)) {
             this.mapPrices.put(aDay, new Price(aDay, aValue));
         }
@@ -57,7 +57,7 @@ public class SimpleShare extends AbstractShare {
      * {@inheritDoc}
      */
     @Override
-    public final float getPrice(final Day aDay) {
+    public float getPrice(final Day aDay) {
         if (this.mapPrices.containsKey(aDay)) {
             return this.mapPrices.get(aDay).getValue();
         } else {
@@ -76,7 +76,7 @@ public class SimpleShare extends AbstractShare {
     }
 
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         return super.hashCode();
     }
 
