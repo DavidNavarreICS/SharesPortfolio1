@@ -7,7 +7,7 @@ import java.util.Objects;
  *
  * @author hm
  */
-public class Day {
+public final class Day {
 
     /**
      * Parameter for describing a year.
@@ -24,7 +24,7 @@ public class Day {
      *
      * @return value of Parameter year
      */
-    public final int getYear() {
+    public int getYear() {
         return year;
     }
 
@@ -33,7 +33,7 @@ public class Day {
      *
      * @return value of Parameter dayNumber
      */
-    public final int getDayNumber() {
+    public int getDayNumber() {
         return dayNumber;
     }
 
@@ -56,7 +56,7 @@ public class Day {
     }
 
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         final int dayWeeek = 7;
         final int weekYear = 61;
         int hash;
@@ -66,7 +66,7 @@ public class Day {
     }
 
     @Override
-    public final boolean equals(final Object obj) {
+    public boolean equals(final Object obj) {
         if (obj == null) {
             return false;
         }
