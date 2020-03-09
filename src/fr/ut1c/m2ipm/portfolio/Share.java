@@ -53,14 +53,13 @@ public abstract class Share {
      */
     @Override
     public final boolean equals(final Object obj) {
-        if (obj == null || getClass() != obj.getClass()||) {
+        if (obj == null) {
+            return false;
+        } else if (getClass() != obj.getClass()) {
             return false;
         }
         final Share other = (Share) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.name, other.name);
     }
 
     /**
