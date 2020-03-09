@@ -34,11 +34,16 @@ public abstract class Share {
      * @return price of a share of one day.
      */
     public abstract float getPrice(Day day);
-
+    /**
+     * Method which allowed to return the hashcode of an object.
+     * @return return the hashcode.
+     */
     @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.name);
+    public final int hashCode() {
+        final int x = 3;
+        final int y = 53;
+        int hash;
+        hash = y * x + Objects.hashCode(this.name);
         return hash;
     }
     /**
@@ -47,7 +52,7 @@ public abstract class Share {
      * @return return the boolean true or false.
      */
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
         if (obj == null) {
             return false;
         }
