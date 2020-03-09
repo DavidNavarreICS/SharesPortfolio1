@@ -13,7 +13,7 @@ public final class Portfolio {
     /**
      * The key is the share,the value is one line who describes this share.
      */
-    private Map<Share, PortfolioLine> mapLines;
+    private final Map<Share, PortfolioLine> mapLines;
 
     /**
      * get attribut mapLines.
@@ -57,10 +57,12 @@ public final class Portfolio {
      */
     public void sell(final Share sToSell, final int qteToSell) {
         if (this.mapLines.containsKey(sToSell)) {
-            if (this.mapLines.get(qteToSell).getQuantity() > qteToSell) {
-                this.mapLines.get(qteToSell).setQuantity(this.mapLines.get(qteToSell).getQuantity() - qteToSell);
-            } else if (this.mapLines.get(qteToSell).getQuantity() == qteToSell) {
-                this.mapLines.remove(qteToSell);
+            if (this.mapLines.get(sToSell).getQuantity() > qteToSell) {
+                int currQte = this.mapLines.get(sToSell).getQuantity();
+                int newQte = currQte - qteToSell;
+                this.mapLines.get(sToSell).setQuantity(newQte);
+            } else if (this.mapLines.get(sToSell).getQuantity() == qteToSell) {
+                this.mapLines.remove(sToSell);
             }
         }
     }
@@ -93,7 +95,7 @@ public final class Portfolio {
         /**
          * the share of this line.
          */
-        private Share share;
+        private final Share share;
         /**
          * the quantity of the share in this line.
          */
