@@ -26,7 +26,7 @@ import java.util.Map;
 public final class SimpleShare extends AbstractShare {
 
     /**
-     * A collection that maps a day into a price.
+     * A collection that maps a day object into a price object.
      */
     private Map<Day, Price> mapPrices;
 
