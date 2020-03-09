@@ -1,3 +1,4 @@
+
 package fr.ut1c.m2ipm.portfolio;
 
 import java.util.Objects;
@@ -34,18 +35,22 @@ public abstract class Share {
      * @return price of a share of one day.
      */
     public abstract float getPrice(Day day);
-
     /**
-     * Abstract method which allowed to set the price of a share of on day.
-     * @param day the date of which we want to set the price of.
+     * Abstract method which allowed to set the price of a share of one day.
+     * @param day day is a date of which we want to set the price of.
      * @param value price of a share of one day.
      */
     public abstract void setPrice(Day day, float value);
-    
+    /**
+     * Method which allowed to return the hashcode of an object.
+     * @return return the hashcode.
+     */
     @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.name);
+    public final int hashCode() {
+        final int x = 3;
+        final int y = 53;
+        int hash;
+        hash = y * x + Objects.hashCode(this.name);
         return hash;
     }
     /**
@@ -54,18 +59,15 @@ public abstract class Share {
      * @return return the boolean true or false.
      */
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
         if (obj == null) {
             return false;
-        }
-        else if (getClass() != obj.getClass()) {
+        } 
+        if (getClass() != obj.getClass()) {
             return false;
         }
         final Share other = (Share) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.name, other.name);
     }
 
     /**
