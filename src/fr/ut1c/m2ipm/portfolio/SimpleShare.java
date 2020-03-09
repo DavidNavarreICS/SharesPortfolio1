@@ -36,7 +36,7 @@ public class SimpleShare extends Share {
 /**
  * Method which allowed to get the price of the simple share of the day.
  * inherit of Share.
- * @param day
+ * @param day day of which we want to get the price of.
  * @return price of the day chose.
  */
     @Override

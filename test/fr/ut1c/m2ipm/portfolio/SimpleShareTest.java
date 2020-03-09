@@ -10,11 +10,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- *
+ * Simple share test class.
  * @author David
  */
 public class SimpleShareTest {
-
+/**
+ * 
+ */
     public SimpleShareTest() {
     }
 
