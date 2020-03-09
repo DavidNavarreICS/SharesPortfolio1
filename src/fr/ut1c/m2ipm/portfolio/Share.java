@@ -55,7 +55,7 @@ public abstract class Share {
     public final boolean equals(final Object obj) {
         if (obj == null) {
             return false;
-        }
+        } 
         if (getClass() != obj.getClass()) {
             return false;
         }
