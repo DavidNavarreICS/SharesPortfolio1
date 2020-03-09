@@ -22,23 +22,26 @@ public class SimpleShare extends Share {
         this.mapPrices = new HashMap();
     }
 /**
- * 
- * @param day
- * @param value 
+ * Method which allowed to set the price of the simple share of the day.
+ * inherit of Share.
+ * @param day parameter day : day of which we want to set the price of.
+ * @param value price of Simple share setted.
  */
-    public void setPrice(Day day, float value) {
-        if (this.mapPrices.containsKey(day) == false) {
+    @Override
+    public final void setPrice(final Day day, final float value) {
+        if (!this.mapPrices.containsKey(day)) {
             this.mapPrices.put(day, new Price(day, value));
         }
     }
 /**
- * 
- * @param day
- * @return 
+ * Method which allowed to get the price of the simple share of the day.
+ * inherit of Share.
+ * @param day day of which we want to get the price of.
+ * @return price of the day chose.
  */
     @Override
-    public float getPrice(Day day) {
-        if (this.mapPrices.containsKey(day) == true) {
+    public final float getPrice(final Day day) {
+        if (this.mapPrices.containsKey(day)) {
             return this.mapPrices.get(day).getValue();
         } else {
             return 0.0F;

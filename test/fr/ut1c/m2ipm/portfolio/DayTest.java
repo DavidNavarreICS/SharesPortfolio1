@@ -11,13 +11,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- *
+ *Day test class.
  * @author David
  */
 public final class DayTest {
 
     /**
-     * Day test class.
+     * Methode of test.
      */
     public DayTest() {
     }
@@ -28,6 +28,7 @@ public final class DayTest {
     @Before
     public void setUp() {
     }
+
     /**
      * Action after test end.
      */
@@ -43,6 +44,7 @@ public final class DayTest {
     public void testConstructorWithIncorrectParameters() {
         Day day = new Day(0, 0);
     }
+    
     /**
      * in day class constructor, if parameters is correct,
      * no error throwed.

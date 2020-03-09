@@ -10,14 +10,20 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- *
+ * Simple share test class.
  * @author David
  */
 public class SimpleShareTest {
 
+    /**
+     * SimpleShare test class.
+     */
     public SimpleShareTest() {
     }
 
+    /**
+     * Action before test begin.
+     */
     @Before
     public void setUp() {
     }
