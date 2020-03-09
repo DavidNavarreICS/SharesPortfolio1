@@ -49,7 +49,7 @@ public final class Portfolio {
      * time) and the quantity is cumulated.
      *
      * @param share the non empty share to be added
-     * @param quantity the quantity to add (>0)
+     * @param quantity the quantity to add (&gt;0)
      */
     public void buy(final AbstractShare share, final int quantity) {
         if (Objects.isNull(share)) {

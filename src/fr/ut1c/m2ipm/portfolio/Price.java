@@ -45,7 +45,7 @@ public final class Price {
      * Defines a Price with a float value for a given day.
      *
      * @param aDay is a non null value
-     * @param aValue is a >0 value
+     * @param aValue is a &gt;0 value
      */
     public Price(final Day aDay, final float aValue) {
         if (Objects.isNull(aDay)) {
