@@ -41,7 +41,11 @@ public final class ComposedShare extends Share {
             throw new IllegalArgumentException("Percentage not allowed.");
         }
     }
-
+    /**
+     * Method allowed to get a price of a share.
+     * @param day day is a date of which we want to get the price of.
+     * @return price of a share of one day.
+     */
     @Override
     public float getPrice(final Day day) {
         float value;
@@ -54,5 +58,13 @@ public final class ComposedShare extends Share {
 
         return value;
     }
-
+    /**
+     * Method allowed to set a price of a share for one day.
+     * @param day day is a date of which we want to set the price of.
+     * @param value price of a share of one day.
+     */
+    @Override
+    public final void setPrice(final Day day, final float value) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
