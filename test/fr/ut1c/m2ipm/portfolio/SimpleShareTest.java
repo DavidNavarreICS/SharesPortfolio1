@@ -15,9 +15,15 @@ import org.junit.Test;
  */
 public class SimpleShareTest {
 
+    /**
+     * SimpleShare test class.
+     */
     public SimpleShareTest() {
     }
 
+    /**
+     * Action before test begin.
+     */
     @Before
     public void setUp() {
     }

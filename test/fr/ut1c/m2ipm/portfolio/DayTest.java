@@ -28,9 +28,11 @@ public final class DayTest {
     @Before
     public void setUp() {
     }
+
     /**
      * Action after test end.
      */
+
     @After
     public void tearDown() {
     }
@@ -43,6 +45,7 @@ public final class DayTest {
     public void testConstructorWithIncorrectParameters() {
         Day day = new Day(0, 0);
     }
+    
     /**
      * in day class constructor, if parameters is correct,
      * no error throwed.
