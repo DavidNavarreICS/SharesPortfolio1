@@ -17,7 +17,7 @@ import org.junit.Test;
  * ComposedShare Test Class.
  * @author David
  */
-final public class ComposedShareTest {
+public class ComposedShareTest {
 
     /**
      * Methode of test.
