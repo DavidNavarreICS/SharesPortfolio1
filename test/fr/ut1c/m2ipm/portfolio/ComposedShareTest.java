@@ -30,4 +30,12 @@ public class ComposedShareTest {
     public void testConstructor() {
         ComposedShare composedShare = new ComposedShare("test");
     }
+    
+    @Test
+    public void testRegisterComposition(){
+        ComposedShare composedShare = new ComposedShare("test");
+        SimpleShare simpleShare = new SimpleShare("simple");
+        
+        composedShare.registerComposition(simpleShare, 0.1f);
+    }
 }
