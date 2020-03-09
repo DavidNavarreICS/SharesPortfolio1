@@ -23,8 +23,7 @@ import java.util.Map;
 public final class ComposedShare extends AbstractShare {
 
     /**
-     * A map that stores simple shares and their rate within this composed
-     * share.
+     * A map that stores simple shares and their rate.
      */
     private final Map<SimpleShare, Float> sharesBasket;
 
