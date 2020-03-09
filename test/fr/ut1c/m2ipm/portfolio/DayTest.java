@@ -5,6 +5,7 @@
  */
 package fr.ut1c.m2ipm.portfolio;
 
+import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,21 +14,43 @@ import org.junit.Test;
  *
  * @author David
  */
-public class DayTest {
+public final class DayTest {
 
+    /**
+     * Day test class.
+     */
     public DayTest() {
     }
 
+     /**
+     * Action before test begin.
+     */
     @Before
     public void setUp() {
     }
-
+    /**
+     * Action after test end.
+     */
     @After
     public void tearDown() {
     }
 
+    /**
+     * in day class constructor, if  parameters is incorrect,
+     * thows an IllegalArgumentException error.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructorWithIncorrectParameters() {
+        Day day = new Day(0, 0);
+    }
+    /**
+     * in day class constructor, if parameters is correct,
+     * no error throwed.
+     */
     @Test
     public void testConstructorWithCorrectParameters() {
-        Day day = new Day(0, 0);
+        Day day = new Day(1, 1);
+        int year = day.getYear();
+        Assert.assertEquals("The value of year", 1, year);
     }
 }
