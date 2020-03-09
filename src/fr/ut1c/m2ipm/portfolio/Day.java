@@ -94,8 +94,7 @@ public final class Day {
     }
 
     /**
-     * Provide read access to the day that defines the object day. This method
-     * is not designed to be derived.
+     * Provide read access to the day that defines the object day.
      *
      * @return the day >0
      */
