@@ -27,7 +27,7 @@
     </target>
 
     <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
-        <classpath path="${basedir}/lib/jacocoant.jar"/>
+        <classpath path="${basedir}/lib/jacocoant-0.8.6.jar"/>
     </taskdef>
 
     <target name="jacoco" depends="compile-test">
