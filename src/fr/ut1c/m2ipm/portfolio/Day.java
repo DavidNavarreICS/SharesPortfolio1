@@ -17,8 +17,8 @@ import java.util.Objects;
  * This class allows the construction of Days.
  * <br>An object of this class represents a particular day defined by:
  * <ul>
- * <li>a day number (>0)</li>
- * <li>a year number (>0)</li>
+ * <li>a day number (&gt;0)</li>
+ * <li>a year number (&gt;0)</li>
  * </ul>
  *
  * @author David Navarre
@@ -48,11 +48,11 @@ public final class Day {
      */
     private static final int BASE_HASHCODE_FACTOR = 53;
     /**
-     * The year number must be >0.
+     * The year number must be &gt;0.
      */
     private final int year;
     /**
-     * The day number must be > 0.
+     * The day number must be &gt;0.
      */
     private final int dayNumber;
     /**
@@ -63,8 +63,8 @@ public final class Day {
     /**
      * Build a day as a tuple <code>[year, day]</code>.
      *
-     * @param aYear the year that defines the day. It must be >0
-     * @param aDayNumber the day that defines the day. It must be >0
+     * @param aYear the year that defines the day. It must be &gt;0
+     * @param aDayNumber the day that defines the day. It must be &gt;0
      */
     public Day(final int aYear, final int aDayNumber) {
         if (aYear <= 0) {
@@ -87,7 +87,7 @@ public final class Day {
      * Provide read access to the year that defines the day. This method is not
      * designed to be derived.
      *
-     * @return the year >0
+     * @return the year &gt;0
      */
     public int getYear() {
         return year;
@@ -96,7 +96,7 @@ public final class Day {
     /**
      * Provide read access to the day that defines the object day.
      *
-     * @return the day >0
+     * @return the day &gt;0
      */
     public int getDayNumber() {
         return dayNumber;
