@@ -38,7 +38,7 @@ public final class Portfolio {
      * @param quantityToBuy the integer quantity should be strictly positive
      */
     public void buy(final Share shareToBuy, final int quantityToBuy) {
-        if (quantityToBuy == 0) {
+        if (quantityToBuy <= 0) {
             throw new IllegalArgumentException("Quantity must larger than 0");
         }
         if (!this.mapLines.containsKey(shareToBuy)) {
@@ -59,14 +59,22 @@ public final class Portfolio {
      * quantity.
      */
     public void sell(final Share sToSell, final int qteToSell) {
-        if (this.mapLines.containsKey(sToSell)) {
-            if (this.mapLines.get(sToSell).getQuantity() > qteToSell) {
-                int currQte = this.mapLines.get(sToSell).getQuantity();
-                int newQte = currQte - qteToSell;
-                this.mapLines.get(sToSell).setQuantity(newQte);
-            } else if (this.mapLines.get(sToSell).getQuantity() == qteToSell) {
-                this.mapLines.remove(sToSell);
-            }
+        if (qteToSell <= 0) {
+            throw new IllegalArgumentException("Quantity must larger than 0");
+        }
+        if (!this.mapLines.containsKey(sToSell)) {
+            throw new IllegalArgumentException("Share don't exist");
+        }
+        if (this.mapLines.get(sToSell).getQuantity() < qteToSell) {
+            throw new IllegalArgumentException("Not enough quantity");
+        }
+        if (this.mapLines.get(sToSell).getQuantity() == qteToSell) {
+            this.mapLines.remove(sToSell);
+        }
+        if (this.mapLines.get(sToSell).getQuantity() > qteToSell) {
+            int currQte = this.mapLines.get(sToSell).getQuantity();
+            int newQte = currQte - qteToSell;
+            this.mapLines.get(sToSell).setQuantity(newQte);
         }
     }
 
