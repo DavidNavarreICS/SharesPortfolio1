@@ -14,24 +14,40 @@ import org.junit.Test;
  * @author David
  */
 public class ShareTest {
-
+    /**
+     * Tests for class Share.
+     */
     public ShareTest() {
     }
-
+    /**
+     * Actions befor test.
+     */
     @Before
     public void setUp() {
     }
-
+    /**
+     * Actions after test.
+     */
     @After
     public void tearDown() {
     }
-
+    /**
+     * Test for class share.
+     */
     @Test
-    public void testConstructor() {
+    public final void testConstructor() {
         Share share = new Share("test") {
             @Override
-            public float getPrice(Day day) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            public float getPrice(final Day day) {
+                //To change body of generated methods, choose Tools | Templates.
+                throw new UnsupportedOperationException("Not supported yet.");
+
+            }
+            @Override
+            public void setPrice(final Day day, final float value) {
+                //To change body of generated methods, choose Tools | Templates.
+                throw new UnsupportedOperationException("Not supported yet.");
+
             }
         };
     }
