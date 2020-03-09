@@ -10,141 +10,137 @@ import java.util.Map;
  */
 public final class Portfolio {
 
-           /**
-            * The key is the share,the value is one line who describes this
-            * share.
-            */
-           private Map<Share, PortfolioLine> mapLines;
+    /**
+     * The key is the share,the value is one line who describes this share.
+     */
+    private Map<Share, PortfolioLine> mapLines;
 
-           /**
-            * get attribut mapLines.
-            *
-            * @return A Map<Share,PortfolioLine>
-            */
-           public Map<Share, PortfolioLine> getMapLines() {
-                      return mapLines;
-           }
+    /**
+     * get attribut mapLines.
+     *
+     * @return A Map<Share,PortfolioLine>
+     */
+    public Map<Share, PortfolioLine> getMapLines() {
+        return mapLines;
+    }
 
-           /**
-            * Build a empty portfolio.
-            */
-           public Portfolio() {
-                      this.mapLines = new HashMap();
-           }
+    /**
+     * Build a empty portfolio.
+     */
+    public Portfolio() {
+        this.mapLines = new HashMap();
+    }
 
-           /**
-            * Buy a share by specifing the share and quantity to buy.
-            *
-            * @param shareToBuy a share objet to buy
-            * @param quantityToBuy the integer quantity should be strictly positive
-            */
-           public void buy(final Share shareToBuy, final int quantityToBuy) {
-                      if (!this.mapLines.containsKey(shareToBuy)) {
-                                 this.mapLines.put(shareToBuy,
-                                         new PortfolioLine(shareToBuy, quantityToBuy));
-                      } else {
-                                 this.mapLines.get(shareToBuy).
-                                         setQuantity(this.mapLines.get(shareToBuy).
-                                                 getQuantity() + quantityToBuy);
-                      }
-           }
+    /**
+     * Buy a share by specifing the share and quantity to buy.
+     *
+     * @param shareToBuy a share objet to buy
+     * @param quantityToBuy the integer quantity should be strictly positive
+     */
+    public void buy(final Share shareToBuy, final int quantityToBuy) {
+        if (!this.mapLines.containsKey(shareToBuy)) {
+            this.mapLines.put(shareToBuy,
+                    new PortfolioLine(shareToBuy, quantityToBuy));
+        } else {
+            this.mapLines.get(shareToBuy).
+                    setQuantity(this.mapLines.get(shareToBuy).
+                            getQuantity() + quantityToBuy);
+        }
+    }
 
-           /**
-            * Sell the enter quantity of the share specified.
-            *
-            * @param sToSell a share object to sell, should exist in portfolio
-            * @param qteToSell Quantity to sell, should be less or equal to
-            * existing quantity.
-            */
-           public void sell(final Share sToSell, final int qteToSell) {
-                      if (this.mapLines.containsKey(sToSell)) {
-                                 if (this.mapLines.get(qteToSell).getQuantity() > qteToSell) {
-                                            this.mapLines.get(qteToSell).setQuantity(this.mapLines.get(qteToSell).getQuantity() - qteToSell);
-                                 } else if (this.mapLines.get(qteToSell).getQuantity() == qteToSell) {
-                                            this.mapLines.remove(qteToSell);
-                                 }
-                      }
-           }
+    /**
+     * Sell the enter quantity of the share specified.
+     *
+     * @param sToSell a share object to sell, should exist in portfolio
+     * @param qteToSell Quantity to sell, should be less or equal to existing
+     * quantity.
+     */
+    public void sell(final Share sToSell, final int qteToSell) {
+        if (this.mapLines.containsKey(sToSell)) {
+            if (this.mapLines.get(qteToSell).getQuantity() > qteToSell) {
+                this.mapLines.get(qteToSell).setQuantity(this.mapLines.get(qteToSell).getQuantity() - qteToSell);
+            } else if (this.mapLines.get(qteToSell).getQuantity() == qteToSell) {
+                this.mapLines.remove(qteToSell);
+            }
+        }
+    }
 
-           @Override
-           public String toString() {
-                      return this.mapLines.toString();
-           }
+    @Override
+    public String toString() {
+        return this.mapLines.toString();
+    }
 
-           /**
-            * Return the value of the portfolio in a specified day.
-            *
-            * @param unJour the day to get the value of the portfolio
-            * @return the total value of the portfolio of the specified day in
-            * float
-            */
-           public float getValue(final Day unJour) {
-                      float total = 0;
-                      for (PortfolioLine lp : this.mapLines.values()) {
-                                 total += (lp.getQuantity()
-                                         * lp.getShare().getPrice(unJour));
-                      }
-                      return total;
-           }
+    /**
+     * Return the value of the portfolio in a specified day.
+     *
+     * @param unJour the day to get the value of the portfolio
+     * @return the total value of the portfolio of the specified day in float
+     */
+    public float getValue(final Day unJour) {
+        float total = 0;
+        for (PortfolioLine lp : this.mapLines.values()) {
+            total += (lp.getQuantity()
+                    * lp.getShare().getPrice(unJour));
+        }
+        return total;
+    }
 
-           /**
-            * this class defines the line of the portfolio.
-            */
-           private class PortfolioLine {
+    /**
+     * this class defines the line of the portfolio.
+     */
+    private class PortfolioLine {
 
-                      /**
-                       * the share of this line.
-                       */
-                      private Share share;
-                      /**
-                       * the quantity of the share in this line.
-                       */
-                      private int quantity;
+        /**
+         * the share of this line.
+         */
+        private Share share;
+        /**
+         * the quantity of the share in this line.
+         */
+        private int quantity;
 
-                      /**
-                       * build a portfolio line using a share and its quantity.
-                       *
-                       * @param shareInit the share to add of this portfolioline
-                       * @param qte the quantity of the share, strictly larger
-                       * than 0
-                       */
-                      PortfolioLine(final Share shareInit, final int qte) {
-                                 this.share = shareInit;
-                                 this.quantity = qte;
-                      }
+        /**
+         * build a portfolio line using a share and its quantity.
+         *
+         * @param shareInit the share to add of this portfolioline
+         * @param qte the quantity of the share, strictly larger than 0
+         */
+        PortfolioLine(final Share shareInit, final int qte) {
+            this.share = shareInit;
+            this.quantity = qte;
+        }
 
-                      /**
-                       * get the quantity of the share of this line.
-                       *
-                       * @return integer that indicates the quantity of the
-                       * share
-                       */
-                      public int getQuantity() {
-                                 return quantity;
-                      }
+        /**
+         * get the quantity of the share of this line.
+         *
+         * @return integer that indicates the quantity of the share
+         */
+        public int getQuantity() {
+            return quantity;
+        }
 
-                      /**
-                       * set a quantity of the share in this line.
-                       *
-                       * @param qteToSet the quantity to set for the share,
-                       * strictly larger than 0
-                       */
-                      public void setQuantity(final int qteToSet) {
-                                 this.quantity = qteToSet;
-                      }
+        /**
+         * set a quantity of the share in this line.
+         *
+         * @param qteToSet the quantity to set for the share, strictly larger
+         * than 0
+         */
+        public void setQuantity(final int qteToSet) {
+            this.quantity = qteToSet;
+        }
 
-                      /**
-                       * return the share of this line.
-                       *
-                       * @return a share object of this portfolioline
-                       */
-                      public Share getShare() {
-                                 return this.share;
-                      }
+        /**
+         * return the share of this line.
+         *
+         * @return a share object of this portfolioline
+         */
+        public Share getShare() {
+            return this.share;
+        }
 
-                      @Override
-                      public String toString() {
-                                 return Integer.toString(quantity);
-                      }
-           }
+        @Override
+        public String toString() {
+            return Integer.toString(quantity);
+        }
+    }
 }
