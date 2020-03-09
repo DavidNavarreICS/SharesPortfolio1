@@ -65,6 +65,6 @@ public final class ComposedShare extends Share {
      */
     @Override
     public final void setPrice(final Day day, final float value) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Can't set a composed share price, pls set the simple share.");
     }
 }

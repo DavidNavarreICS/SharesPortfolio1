@@ -11,13 +11,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- *
+ *Day test class.
  * @author David
  */
 public final class DayTest {
 
     /**
-     * Day test class.
+     * Methode of test.
      */
     public DayTest() {
     }
@@ -32,7 +32,6 @@ public final class DayTest {
     /**
      * Action after test end.
      */
-
     @After
     public void tearDown() {
     }

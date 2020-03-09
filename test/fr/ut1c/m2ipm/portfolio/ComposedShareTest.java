@@ -14,30 +14,34 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
+ * ComposedShare Test Class.
  * @author David
  */
-public class ComposedShareTest {
+final public class ComposedShareTest {
 
+    /**
+     * Methode of test.
+     */
     public ComposedShareTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
+    /**
+     * Action before test begin.
+     */
     @Before
     public void setUp() {
     }
 
+    /**
+     * Action after test end.
+     */
     @After
     public void tearDown() {
     }
 
+    /**
+     * Test of constructor.
+     */
     @Test
     public void testConstructor() {
         ComposedShare composedShare = new ComposedShare("test");
@@ -53,7 +57,8 @@ public class ComposedShareTest {
         float percentage = 0.0F;
         ComposedShare instance = null;
         instance.registerComposition(simpleShare, percentage);
-        // TODO review the generated test code and remove the default call to fail.
+        // TODO review the generated test code
+        // and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -68,7 +73,8 @@ public class ComposedShareTest {
         float expResult = 0.0F;
         float result = instance.getPrice(day);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
+        // TODO review the generated test code
+        //and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -82,7 +88,8 @@ public class ComposedShareTest {
         float value = 0.0F;
         ComposedShare instance = null;
         instance.setPrice(day, value);
-        // TODO review the generated test code and remove the default call to fail.
+        // TODO review the generated test code
+        // and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 }
