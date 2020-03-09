@@ -38,6 +38,9 @@ public final class Portfolio {
      * @param quantityToBuy the integer quantity should be strictly positive
      */
     public void buy(final Share shareToBuy, final int quantityToBuy) {
+        if (quantityToBuy == 0) {
+            throw new IllegalArgumentException("Quantity must larger than 0");
+        }
         if (!this.mapLines.containsKey(shareToBuy)) {
             this.mapLines.put(shareToBuy,
                     new PortfolioLine(shareToBuy, quantityToBuy));
@@ -90,7 +93,7 @@ public final class Portfolio {
     /**
      * this class defines the line of the portfolio.
      */
-    private class PortfolioLine {
+    public class PortfolioLine {
 
         /**
          * the share of this line.
