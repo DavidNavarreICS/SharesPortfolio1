@@ -35,6 +35,13 @@ public abstract class Share {
      */
     public abstract float getPrice(Day day);
 
+    /**
+     * Abstract method which allowed to set the price of a share of on day.
+     * @param day the date of which we want to set the price of.
+     * @param value price of a share of one day.
+     */
+    public abstract void setPrice(Day day, float value);
+    
     @Override
     public int hashCode() {
         int hash = 3;

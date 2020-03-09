@@ -32,6 +32,12 @@ public class ShareTest {
             @Override
             public float getPrice(Day day) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+            }
+            @Override
+            public void setPrice(Day day, float value) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
             }
         };
     }

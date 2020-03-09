@@ -2,7 +2,10 @@ package fr.ut1c.m2ipm.portfolio;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * uuuiuiiiiiii
+ * @author 21709520
+ */
 public class ComposedShare extends Share {
 
     Map<SimpleShare, Float> sharesBasket;
