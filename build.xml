@@ -3,7 +3,9 @@
     <description>Builds, tests, and runs the project SharesPortfolio.</description>
     <import file="nbproject/build-impl.xml"/>
 
-    <property name="sonar.host.url" value="http://localhost:9000" />
+    <property name="sonar.host.url" value="https://sonarcloud.io" />
+    <property name="sonar.organization" value="davidnavarreics"/>
+    <property name="sonar.login" value="d3a49d18a0d1b31faa572b721567663a759c5b31"/>
     <property name="project.branch.name" value="master"/>
     <property name="sonar.projectKey" value="${project.branch.name}" />
     <property name="sonar.projectName" value="Shares Portfolio [${project.branch.name}]" />
