@@ -18,17 +18,30 @@ public class ComposedShare extends Share {
     public void registerComposition(SimpleShare simpleShare, float percentage) {
         this.sharesBasket.put(simpleShare, percentage);
     }
-
+    /**
+     * Method allowed to get a price of a share.
+     * @param day day is a date of which we want to get the price of.
+     * @return price of a share of one day.
+     */
     @Override
-    public float getPrice(Day day) {
+    public final float getPrice(final Day day) {
         float value;
 
         value = 0;
         for (SimpleShare simpleShare : this.sharesBasket.keySet()) {
-            value = value + (simpleShare.getPrice(day) * this.sharesBasket.get(simpleShare));
+            value = value + (simpleShare.getPrice(day)
+                    * this.sharesBasket.get(simpleShare));
         }
 
         return value;
     }
-
+    /**
+     * Method allowed to set a price of a share for one day.
+     * @param day day is a date of which we want to set the price of.
+     * @param value price of a share of one day.
+     */
+    @Override
+    public final void setPrice(final Day day, final float value) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
