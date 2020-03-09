@@ -19,13 +19,14 @@ public abstract class Share {
     }
     /**
      * Constractor of a Share.
-     * @param name parameter which can identify a Share.
+     * @param nameShare parameter which can identify a Share.
      */
-    public Share(final String name) {
-        if (Objects.isNull(name) || name.isEmpty()) {
-            throw new IllegalArgumentException("The share name must be defined.");
+    public Share(final String nameShare) {
+        if (Objects.isNull(nameShare) || name.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "The share name must be defined.");
         }
-        this.name = name;
+        this.name = nameShare;
     }
     /**
      * Abstract method which allowed to get the price of a share of one day.
@@ -42,15 +43,15 @@ public abstract class Share {
     }
     /**
      * Method which can identify if two value are equal.
-     * @param obj 
-     * @return 
+     * @param obj parameter of object that we want to cpmparer.
+     * @return return the boolean true or false.
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        else if (getClass() != obj.getClass()) {
             return false;
         }
         final Share other = (Share) obj;
