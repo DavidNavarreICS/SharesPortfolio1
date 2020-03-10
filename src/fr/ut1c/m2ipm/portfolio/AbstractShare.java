@@ -14,7 +14,8 @@ package fr.ut1c.m2ipm.portfolio;
 import java.util.Objects;
 
 /**
- * This abstract class is used as a support to handle Shares and their price.
+ * This abstract class is used as a support to handle Shares and their set of
+ * prices.
  *
  * @author David Navarre
  */
