@@ -68,13 +68,12 @@ public final class Portfolio {
         if (this.mapLines.get(sToSell).getQuantity() < qteToSell) {
             throw new IllegalArgumentException("Not enough quantity");
         }
-        if (this.mapLines.get(sToSell).getQuantity() == qteToSell) {
-            this.mapLines.remove(sToSell);
-        }
         if (this.mapLines.get(sToSell).getQuantity() > qteToSell) {
             int currQte = this.mapLines.get(sToSell).getQuantity();
             int newQte = currQte - qteToSell;
             this.mapLines.get(sToSell).setQuantity(newQte);
+        } else if (this.mapLines.get(sToSell).getQuantity() == qteToSell) {
+            this.mapLines.remove(sToSell);
         }
     }
 

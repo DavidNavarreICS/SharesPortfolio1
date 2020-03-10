@@ -75,7 +75,7 @@ public class PortfolioTest {
     @Test(expected = IllegalArgumentException.class)
     public void testSellNotExistShare() {
         Share shareTest = new SimpleShare("SimpleShare1");
-        portfolio.sell(shareTest, 0);
+        portfolio.sell(shareTest, 1);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -85,30 +85,37 @@ public class PortfolioTest {
     }
 
     @Test
-    public void testSellAllQteOfShare() {
-        portfolio.buy(simpleShare, 1);
-        portfolio.sell(simpleShare, 1);
-        Assert.assertNull(portfolio.getMapLines().get(simpleShare));
-    }
-
-    @Test
     public void testSellPartOfShare() {
         portfolio.buy(simpleShare, 2);
         portfolio.sell(simpleShare, 1);
         Assert.assertEquals(1, portfolio.getMapLines().get(simpleShare).getQuantity());
     }
 
+    @Test
+    public void testSellAllQteOfShare() {
+        portfolio.buy(simpleShare, 1);
+        portfolio.sell(simpleShare, 1);
+        Assert.assertNull(portfolio.getMapLines().get(simpleShare));
+    }
+
     /**
      * tests getvalue
      */
     @Test
-    public void testGetValue() {
+    public void testGetZeroValue() {
         float value = portfolio.getValue(new Day(2020, 1));
-        Assert.assertEquals(0, value);
+        Assert.assertEquals(0f, value);
     }
-    
+
+    @Test
+    public void testGetValueWithShare() {
+        portfolio.buy(simpleShare, 1);
+        Day aDay = new Day(2020, 1);
+        float value = portfolio.getValue(aDay);
+        Assert.assertEquals(simpleShare.getPrice(aDay) * 1f, value);
+    }
+
     /**
      * tests for PortfolioLine
      */
-    
 }
