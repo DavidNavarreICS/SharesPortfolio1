@@ -1,9 +1,28 @@
+/*
+ * Portfolio, open source software.
+ * Copyright (C) 2014-2019 M2 MIAGE IPM
+ * mailto:navarre@irit.fr
+ *
+ * Portfolio is free software; you can redistribute it and/or
+ * modify it under the terms of any License.
+ *
+ * Portfolio is distributed in the hope that it will be useless,
+ * but WITHOUT ANY WARRANTY.
+ */
 package fr.ut1c.m2ipm.portfolio;
 
 import java.util.Objects;
 
+/**
+ * This abstract class is used as a support to handle Shares and their prices.
+ *
+ * @author David Navarre
+ */
 public abstract class AbstractShare {
 
+    /**
+     * Name of the share.
+     */
     private String name;
 
     /**
