@@ -6,7 +6,11 @@
     <property name="sonar.host.url" value="https://sonarcloud.io" />
     <property name="sonar.organization" value="davidnavarreics"/>
     <property name="sonar.login" value="d3a49d18a0d1b31faa572b721567663a759c5b31"/>
-    <property name="project.branch.name" value="master"/>
+    <!--<property name="project.branch.name" value="master"/>-->
+    <exec executable="git" outputproperty="project.branch.name"
+          failifexecutionfails="false">
+        <arg line="rev-parse --abbrev-ref HEAD"/>
+    </exec>
 
     <echo message="Current branch: ${project.branch.name}"/>
 
