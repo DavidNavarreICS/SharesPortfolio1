@@ -4,9 +4,6 @@ import java.util.Objects;
 
 public abstract class AbstractShare {
 
-    /**
-     * Name of the share.
-     */
     private String name;
 
     /**
