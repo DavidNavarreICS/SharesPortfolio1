@@ -29,7 +29,7 @@ public abstract class Share {
      * @param nameShare parameter which can identify a Share.
      */
     public Share(final String nameShare) {
-        if (Objects.isNull(nameShare) || name.isEmpty()) {
+        if (Objects.isNull(nameShare) || nameShare.isEmpty()) {
             throw new IllegalArgumentException(
                     "The share name must be defined.");
         }
