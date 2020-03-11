@@ -5,12 +5,8 @@
 
     <property name="sonar.host.url" value="https://sonarcloud.io" />
     <property name="sonar.organization" value="davidnavarreics"/>
-    <exec executable="git" outputproperty="project.branch.name"
-          failifexecutionfails="false">
-        <arg line="rev-parse --abbrev-ref HEAD"/>
-    </exec>
-    <property name="sonar.projectKey" value="shares${project.branch.name}" />
-    <property name="sonar.projectName" value="Shares Portfolio [${project.branch.name}]" />
+    <property name="sonar.projectKey" value="shares" />
+    <property name="sonar.projectName" value="Shares Portfolio" />
     <property name="sonar.projectVersion" value="1.0" />
     <property name="sonar.sources" value="src" />
     <property name="sonar.tests" value="test" />
@@ -20,7 +16,6 @@
     <property name="sonar.java.test.libraries" value="lib/*.jar" />
     <property name="sonar.core.codeCoveragePlugin" value="jacoco" />
     <property name="sonar.coverage.jacoco.xmlReportPaths" value="${basedir}/build/report/report.xml" />
-
     <target name="sonar"  depends="report">
         <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
             <classpath path="${basedir}/lib/sonarqube-ant-task-2.7.0.1612.jar" />
