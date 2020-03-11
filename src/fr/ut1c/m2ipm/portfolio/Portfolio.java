@@ -18,7 +18,7 @@ public final class Portfolio {
     /**
      * get attribut mapLines.
      *
-     * @return A Map<Share,PortfolioLine>
+     * @return A Map&lt;Share,PortfolioLine&gt;
      */
     public Map<Share, PortfolioLine> getMapLines() {
         return mapLines;
