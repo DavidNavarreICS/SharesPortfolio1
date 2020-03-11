@@ -5,15 +5,15 @@ import java.util.Map;
 
 public class ComposedShare extends Share {
 
-    Map<SimpleShare, Float> sharesBasket;
+    Map<SimpleShare, Float> shareBasket;
 
     public ComposedShare(String name) {
         super(name);
-        this.sharesBasket = new HashMap();
+        this.shareBasket = new HashMap();
     }
 
     public void registerComposition(SimpleShare simpleShare, float percentage) {
-        this.sharesBasket.put(simpleShare, percentage);
+        this.shareBasket.put(simpleShare, percentage);
     }
 
     @Override
@@ -21,8 +21,8 @@ public class ComposedShare extends Share {
         float value;
 
         value = 0;
-        for (SimpleShare simpleShare : this.sharesBasket.keySet()) {
-            value = value + (simpleShare.getPrice(day) * this.sharesBasket.get(simpleShare));
+        for (SimpleShare simpleShare : this.shareBasket.keySet()) {
+            value = value + (simpleShare.getPrice(day) * this.shareBasket.get(simpleShare));
         }
 
         return value;
