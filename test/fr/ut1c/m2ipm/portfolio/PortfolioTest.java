@@ -115,7 +115,19 @@ public class PortfolioTest {
         Assert.assertEquals(simpleShare.getPrice(aDay) * 1f, value);
     }
 
-    /**
-     * tests for PortfolioLine
-     */
+/**
+ * Tests toString
+ */
+    @Test
+    public void testeToStringPortfolio(){
+        String s = "";
+        Assert.assertEquals(s, portfolio.toString());
+    }
+        @Test
+    public void testeToStringPortfolioLine(){
+        portfolio.buy(simpleShare, 1);
+       String s1 = portfolio.getMapLines().get(simpleShare).toString();
+       String s ="1";
+        Assert.assertEquals(s1, s);
+    }
 }
