@@ -24,6 +24,7 @@ public final class ComposedShare extends AbstractShare {
 
     /**
      * A map that stores simple shares and their rate.
+     * <br>The rates must be between 0.0F and 1.0F (0.0F being excluded).
      */
     private final Map<SimpleShare, Float> sharesBasket;
 
