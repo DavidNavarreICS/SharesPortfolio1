@@ -5,7 +5,7 @@
 
     <property name="sonar.host.url" value="https://sonarcloud.io" />
     <property name="sonar.organization" value="davidnavarreics"/>
-    <property name="sonar.projectKey" value="shares" />
+    <property name="sonar.projectKey" value="DavidNavarreICS_SharesPortfolio1" />
     <property name="sonar.projectName" value="Shares Portfolio" />
     <property name="sonar.projectVersion" value="1.0" />
     <property name="sonar.sources" value="src" />
