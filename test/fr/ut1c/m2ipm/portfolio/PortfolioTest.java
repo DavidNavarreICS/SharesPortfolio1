@@ -5,6 +5,7 @@
  */
 package fr.ut1c.m2ipm.portfolio;
 
+import java.util.HashMap;
 import java.util.Map;
 import junit.framework.Assert;
 import org.junit.After;
@@ -120,7 +121,7 @@ public class PortfolioTest {
  */
     @Test
     public void testeToStringPortfolio(){
-        String s = "";
+        String s = new HashMap<>().toString();
         Assert.assertEquals(s, portfolio.toString());
     }
         @Test
