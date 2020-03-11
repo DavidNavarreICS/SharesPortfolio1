@@ -3,10 +3,10 @@
     <description>Builds, tests, and runs the project SharesPortfolio.</description>
     <import file="nbproject/build-impl.xml"/>
 
-    <property name="sonar.host.url" value="http://localhost:9000" />
-    <property name="project.branch.name" value="gp2"/>
-    <property name="sonar.projectKey" value="${project.branch.name}" />
-    <property name="sonar.projectName" value="Shares Portfolio [${project.branch.name}]" />
+    <property name="sonar.host.url" value="https://sonarcloud.io" />
+    <property name="sonar.organization" value="davidnavarreics"/>
+    <property name="sonar.projectKey" value="DavidNavarreICS_SharesPortfolio1" />
+    <property name="sonar.projectName" value="Shares Portfolio" />
     <property name="sonar.projectVersion" value="1.0" />
     <property name="sonar.sources" value="src" />
     <property name="sonar.tests" value="test" />
@@ -16,7 +16,6 @@
     <property name="sonar.java.test.libraries" value="lib/*.jar" />
     <property name="sonar.core.codeCoveragePlugin" value="jacoco" />
     <property name="sonar.coverage.jacoco.xmlReportPaths" value="${basedir}/build/report/report.xml" />
-
     <target name="sonar"  depends="report">
         <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
             <classpath path="${basedir}/lib/sonarqube-ant-task-2.7.0.1612.jar" />
@@ -25,7 +24,7 @@
     </target>
 
     <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
-        <classpath path="${basedir}/lib/jacocoant.jar"/>
+        <classpath path="${basedir}/lib/jacocoant-0.8.6.jar"/>
     </taskdef>
 
     <target name="jacoco" depends="compile-test">
